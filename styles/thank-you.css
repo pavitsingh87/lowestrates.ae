@@ -4406,47 +4406,6 @@ input[type="checkbox"]+label {
     position: relative;
 }
 
-.--loading-- {
-    position: relative;
-}
-
-.--loading--: :after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 32px;
-    transform-origin: center;
-    animation: 0.7s linear infinite rotate;
-    box-sizing: border-box;
-    width: 24px;
-    height: 24px;
-    border: 4px solid;
-    border-color: #00c2b8 #ccc #ccc;
-    border-radius: 12px;
-    margin-top: -12px;
-}
-
-.--suggestion-- {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border: 1px solid #eaeaea;
-    z-index: 1;
-}
-
-.--item-- {
-    display: block;
-    cursor: pointer;
-    padding: 0.75em;
-    font-size: 1em;
-}
-
-.--item--: hover {
-    background-color: #f0f0f0;
-}
 
 .address-complete.closed {
     display: none;
