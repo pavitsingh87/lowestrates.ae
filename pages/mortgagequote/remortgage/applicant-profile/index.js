@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Header from '../../../../components/Header';
 import styles from "../../../../styles/styles.css";
 import styles1 from "../../../../styles/property-info.css";
