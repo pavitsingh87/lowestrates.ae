@@ -3,6 +3,16 @@ import Header from '../../../../components/Header';
 import styles from "../../../../styles/styles.css";
 import styles1 from "../../../../styles/property-info.css";
 const Index = () => {
+    const router = useRouter();
+
+    // Define the function to handle form submission
+    const handleSubmit = (event) => {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
+        // Redirect the user to the desired URL using router.push
+        router.push('/mortgagequote/remortgage/thank-you');
+    };
   return (
     <div>
         <Header />
@@ -10,7 +20,7 @@ const Index = () => {
             <div className="mortgage-wrapper renewal">
                 <div className="title-gauge-block">
                     <div className="title">
-                        <a className="back" href="http://localhost:3000/mortgagequote/remortgage/mortgage-info" title="Back">Back</a>
+                        <a className="back" href="/mortgagequote/remortgage/mortgage-info" title="Back">Back</a>
                         <h2>You’re minutes away from your quotes.</h2>
                     </div>
                     <div className="gauge">
@@ -18,16 +28,16 @@ const Index = () => {
                         <div className="progress" style={{width: "66.6667%"}}></div>
                         </div>
                         <ol className="page-name">
-                        <li> <span className="name"> <a href="http://localhost:3000/mortgagequote/remortgage/province-info" title="Province Info">Province Info</a> </span> <span className="time-left">2 minutes to finish</span></li>
-                        <li> <span className="name"> <a href="http://localhost:3000/mortgagequote/remortgage/property-info" title="Property Info">Property Info</a> </span> <span className="time-left">2 minutes to finish</span></li>
-                        <li> <span className="name"> <a href="http://localhost:3000/mortgagequote/remortgage/mortgage-info" title="Mortgage Info">Mortgage Info</a> </span> <span className="time-left">2 minutes to finish</span></li>
-                        <li className="selected"> <span className="name"> <a className="back" href="http://localhost:3000/mortgagequote/remortgage/mortgage-info" title="Back">Back</a>Applicant Profile </span> <span className="time-left">2 minutes to finish</span><span className="extra-gauge" ></span></li>
+                        <li> <span className="name"> <a href="/mortgagequote/remortgage/province-info" title="Province Info">Province Info</a> </span> <span className="time-left">2 minutes to finish</span></li>
+                        <li> <span className="name"> <a href="/mortgagequote/remortgage/property-info" title="Property Info">Property Info</a> </span> <span className="time-left">2 minutes to finish</span></li>
+                        <li> <span className="name"> <a href="/mortgagequote/remortgage/mortgage-info" title="Mortgage Info">Mortgage Info</a> </span> <span className="time-left">2 minutes to finish</span></li>
+                        <li className="selected"> <span className="name"> <a className="back" href="/mortgagequote/remortgage/mortgage-info" title="Back">Back</a>Applicant Profile </span> <span className="time-left">2 minutes to finish</span><span className="extra-gauge" ></span></li>
                         <li> <span className="name"> Contact Info </span> <span className="time-left">2 minutes to finish</span></li>
                         <li> <span className="name"> Your Rates </span> <span className="time-left">2 minutes to finish</span></li>
                         </ol>
                     </div>
                 </div>
-                <form method="POST" className="mortgage-form rate-detail-page search">
+                <form method="POST" className="mortgage-form rate-detail-page search" onSubmit={handleSubmit}>
                     <div className="page-icon">
                         <div className="page-icon-inner">
                         <img src="/resources/images/mortgage/icons/rate-info.png" alt="Rate info icon" />
