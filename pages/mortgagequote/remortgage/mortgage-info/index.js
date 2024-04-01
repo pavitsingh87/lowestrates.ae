@@ -8,15 +8,40 @@ import Header from '../../../../components/Header';
 
 const Index = () => {
     const router = useRouter();
-
-  // Define the function to handle form submission
-  const handleSubmit = (event) => {
-    // Prevent the default form submission behavior
-    event.preventDefault();
-
-    // Redirect the user to the desired URL using router.push
-    router.push('/mortgagequote/remortgage/applicant-profile');
-  };
+    // Retrieve the values from the form fields
+    const handleSubmit = (event) => { 
+        event.preventDefault();
+        let location = ''; // Declare location variable here
+        let livesatproperty='';
+        // Retrieve the values from the form fields
+        const month = event.target['renewal-date[month]'].value;
+        const year = event.target['renewal-date[year]'].value;
+        const propertyValue = event.target['property-value'].value;
+        const previousBalance = event.target.previous.value;
+        // Fetch location from session form data
+        const formDataString = localStorage.getItem('formData');
+        if (formDataString) {
+            const formData = JSON.parse(formDataString);
+            location = formData.location; // Assign value to location
+            livesatproperty= formData.livesatproperty;
+        }
+    
+        // Get the form data
+        const formData = {
+            livesatproperty: livesatproperty,
+            location: location, 
+            month: month,
+            year: year,
+            propertyValue: propertyValue,
+            previousBalance: previousBalance
+        };
+        const serializedData = JSON.stringify(formData);
+    
+        localStorage.setItem('formData', serializedData);
+    
+        // Redirect to the Mortgage Info page
+        router.push('/mortgagequote/remortgage/applicant-profile');
+    };
   return (
     <div>
         <Header />

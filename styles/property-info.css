@@ -4585,7 +4585,8 @@
                     margin-bottom: 16px;
                 }
 
-                .home-purchase-time .options li, .property-type .options li, .rate-type .options li, .credit-score .options li {
+                .home-purchase-time .options li, .property-type .options li, .rate-type .options li, .credit-score .options li,  .home-purchase-time .options li, .property-type .options li, .rate-type .options li, .credit-score .options li, .employment-info .options li 
+                {
                     width: calc(50% - 11px);
                 }
 

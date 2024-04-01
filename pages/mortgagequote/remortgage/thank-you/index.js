@@ -38,11 +38,11 @@ const Index = () => {
                         <div className="progress" style={{ width: "100%" }}></div>
                         </div>
                         <ol className="page-name">
-                        <li> <span className="name"> <a href="https://www.lowestrates.ca/mortgagequote/remortgage/province-info" title="Province Info">Province Info</a> </span></li>
-                        <li> <span className="name"> <a href="https://www.lowestrates.ca/mortgagequote/remortgage/property-info" title="Property Info">Property Info</a> </span></li>
-                        <li> <span className="name"> <a href="https://www.lowestrates.ca/mortgagequote/remortgage/mortgage-info" title="Mortgage Info">Mortgage Info</a> </span></li>
-                        <li> <span className="name"> <a href="https://www.lowestrates.ca/mortgagequote/remortgage/applicant-profile" title="Applicant Profile">Applicant Profile</a> </span></li>
-                        <li> <span className="name"> <a href="https://www.lowestrates.ca/mortgagequote/remortgage/your-rate-e" title="Contact Info">Contact Info</a> </span></li>
+                        <li> <span className="name"> <a href="/mortgagequote/remortgage/province-info" title="Province Info">Province Info</a> </span></li>
+                        <li> <span className="name"> <a href="/mortgagequote/remortgage/property-info" title="Property Info">Property Info</a> </span></li>
+                        <li> <span className="name"> <a href="/mortgagequote/remortgage/mortgage-info" title="Mortgage Info">Mortgage Info</a> </span></li>
+                        <li> <span className="name"> <a href="/mortgagequote/remortgage/applicant-profile" title="Applicant Profile">Applicant Profile</a> </span></li>
+                        <li> <span className="name"> <a href="/mortgagequote/remortgage/your-rate-e" title="Contact Info">Contact Info</a> </span></li>
                         <li className="selected"> <span className="name"> Your Rates </span></li>
                         </ol>
                     </div>
@@ -92,7 +92,7 @@ const Index = () => {
                                     <div className="best">Best</div>
                                     <h5>4.79 %</h5>
                                     <div> 5-year fixed</div>
-                                    </div>
+                                    </div>  
                                 </li>
                                 
                             </ol>

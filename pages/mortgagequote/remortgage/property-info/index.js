@@ -7,14 +7,31 @@ import Header from '../../../../components/Header';
 const Index = () => {
     const router = useRouter();
 
-  // Define the function to handle form submission
-  const handleSubmit = (event) => {
-    // Prevent the default form submission behavior
-    event.preventDefault();
-
-    // Redirect the user to the desired URL using router.push
-    router.push('/mortgagequote/remortgage/mortgage-info');
-  };
+    const handleSubmit = (event) => { 
+        event.preventDefault();
+        let location = ''; // Declare location variable here
+    
+        // Fetch location from session form data
+        const formDataString = localStorage.getItem('formData');
+        if (formDataString) {
+          const formData = JSON.parse(formDataString);
+          location = formData.location; // Assign value to location
+          
+        }
+    
+        // Get the form data
+        const formData = {
+          livesatproperty: event.target['lives-at-property'].value,
+          location: location // Use the location variable
+          // Add other form fields as needed
+        };
+        const serializedData = JSON.stringify(formData);
+    
+        localStorage.setItem('formData', serializedData);
+    
+        // Redirect to the Mortgage Info page
+        router.push('/mortgagequote/remortgage/mortgage-info');
+      };
   return (
     <div>
       <Header />

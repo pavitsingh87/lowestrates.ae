@@ -11,8 +11,52 @@ const Index = () => {
         // Prevent the default form submission behavior
         event.preventDefault();
 
+        let location = ''; // Declare location variable here
+        let livesatproperty='';
+        // Retrieve the values from the form fields
+        let month = '';
+        let year = '';
+        let propertyValue = '';
+        let previousBalance = '';
+
+        let rateType= '';
+        let rateTerm= '';
+        let annualIncome= '';
+        let creditScore= '';
+        let employmentInfo= '';
+
+        // Fetch location from session form data
+        const formDataString = localStorage.getItem('formData');
+        if (formDataString) {
+            const formData = JSON.parse(formDataString);
+            location = formData.location; // Assign value to location
+            livesatproperty= formData.livesatproperty;
+            month=formData.month;
+            year=formData.year;
+            propertyValue=formData.propertyValue;
+            previousBalance=formData.previousBalance;
+        }
+
+            // Fetch values from the form using event.target
+        const formData = {
+            location:location,
+            livesatproperty: livesatproperty,
+            month: month,
+            year: year,
+            propertyValue:propertyValue,
+            previousBalance: previousBalance,
+            rateType: event.target['rate-type'].value,
+            rateTerm: event.target['rate-term'].value,
+            annualIncome: event.target['annual-income'].value,
+            creditScore: event.target['credit-score'].value,
+            employmentInfo: event.target['employment-info'].value
+        };
+
+        // Store form data in localStorage
+        localStorage.setItem('formData', JSON.stringify(formData));
+
         // Redirect the user to the desired URL using router.push
-        router.push('/mortgagequote/remortgage/thank-you');
+        router.push('/mortgagequote/remortgage/your-rate-e');
     };
   return (
     <div>
@@ -69,7 +113,7 @@ const Index = () => {
                         </div>
                         <ul className="options">
                             <li> <input type="radio" id="rate-term1" name="rate-term" value="3" /> <label for="rate-term1"> 3 Years </label></li>
-                            <li> <input type="radio" id="rate-term2" name="rate-term" value="5" checked="" /> <label for="rate-term2"> 5 Years </label></li>
+                            <li> <input type="radio" id="rate-term2" name="rate-term" value="5"  /> <label for="rate-term2"> 5 Years </label></li>
                         </ul>
                         </div>
                         <div className="field money annual-income ">
@@ -89,12 +133,13 @@ const Index = () => {
                             <a className="close-help" title="Close"></a>
                         </div>
                         <ul className="options">
-                            <li> <input type="radio" id="credit-score1" name="credit-score" value="720 or higher" checked="" /> <label for="credit-score1"> 720 or higher </label></li>
+                            <li> <input type="radio" id="credit-score1" name="credit-score" value="720 or higher" /> <label for="credit-score1"> 720 or higher </label></li>
                             <li> <input type="radio" id="credit-score2" name="credit-score" value="660-719" /> <label for="credit-score2"> 660 - 719 </label></li>
                             <li> <input type="radio" id="credit-score3" name="credit-score" value="620-659" /> <label for="credit-score3"> 620 - 659 </label></li>
                             <li> <input type="radio" id="credit-score4" name="credit-score" value="619 or lower" /> <label for="credit-score4"> 619 or lower </label></li>
                         </ul>
                         </div>
+                        <div class="field radio-buttons employment-info "> <label aria-label="What is the employment status of the primary applicant?"> What is the employment status of the primary applicant? <a class="help-trigger">?</a> </label>  <ul class="options"><li> <input type="radio" id="employment-info1" name="employment-info" value="salaried" /> <label for="employment-info1"> Salaried </label></li><li> <input type="radio" id="employment-info2" name="employment-info" value="self-employed" /  > <label for="employment-info2"> Self-Employed </label></li></ul></div>
                     </fieldset>
                     <div className="actions"> <button type="submit" className="call-to-action rate-details">Continue</button></div>
                     <div className="clients-number rate-details">
